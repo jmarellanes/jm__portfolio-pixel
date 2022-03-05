@@ -1,0 +1,30 @@
+* {
+  /* ==========================
+    -> BRAND COLORS
+  ========================== */
+  --brand__hue--primary: 267;
+  --brand__hue--secondary: 60;
+  --brand__saturation: 100%;
+  --brand__lightness: 50%;
+
+  --thm__pure-black: #000;
+  --thm__pure-white: #fff;
+
+  /* ==========================
+	-> LIGHT
+  ========================== */
+  // Primary
+  --thm-light__primary: hsl(267, 100%, 50%);
+  --thm-light__primary--shade-1: hsl(267, 100%, 38%);
+  --thm-light__primary--shade-2: hsl(260, 77%, 23%);
+
+  // Secondary
+  --thm-light__secondary: hsl(60, 100%, 49%);
+  --thm-light__secondary--shade-1: hsl(51, 90%, 54%);
+  --thm-light__secondary--shade-2: hsl(51, 90%, 28%);
+
+  // Complementary
+  --thm-light__complementary-1: hsl(182, 72%, 48%);
+  --thm-light__complementary-2: hsl(44, 47%, 90%);
+  --thm-light__complementary-3: hsl(359, 83%, 60%);
+}

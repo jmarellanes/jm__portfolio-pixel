@@ -1,0 +1,25 @@
+/* =====================================================================
+  -> RESET
+===================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 100%; // 1rem = 16px
+  font-weight: normal;
+  font-style: normal;
+} //--> html
