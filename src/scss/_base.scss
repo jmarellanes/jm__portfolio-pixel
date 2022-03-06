@@ -23,3 +23,35 @@ html {
   font-weight: normal;
   font-style: normal;
 } //--> html
+
+/* =====================================================================
+  -> GENERAL RULES
+===================================================================== */
+body {
+  color: var(--color__text--main);
+  background-color: var(--color__bg--main);
+} // -> body
+
+/* =====================================================================
+  -> HIDE CONTENT
+===================================================================== */
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Based on:
+ * Utility class to hide content visually while keeping it screen reader-accessible.
+ * Source: https://www.scottohara.me/blog/2017/04/14/inclusively-hidden.html
+ */
+.visually-hidden:not(:focus):not(:active) {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(0px 0px 99.9% 99.9%);
+  height: 1px;
+  overflow: hidden;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px;
+} // -> .visually-hidden

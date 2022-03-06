@@ -1,0 +1,29 @@
+/* =====================================================================
+  -> FONTS
+===================================================================== */
+///////////////////////////////////////////////////////////////////////
+//  MUNRO FAMILY
+@font-face {
+  font-family: 'munro_regular';
+  font-display: swap;
+  src: url('../fonts/munro.woff2') format('woff2'),
+    url('../fonts/munro.woff') format('woff'),
+    url('../fonts/munro.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'munro_small';
+  font-display: swap;
+  src: url('../fonts/munro-small.woff2') format('woff2'),
+    url('../fonts/munro-small.woff') format('woff'),
+    url('../fonts/munro-small.ttf') format('truetype');
+}
+
+/* =====================================================================
+  -> GENERAL
+===================================================================== */
+body {
+  font-family: var(--font__primary);
+  line-height: jm_calculate-lh(24, 24);
+  @include jm_text-properties;
+}
