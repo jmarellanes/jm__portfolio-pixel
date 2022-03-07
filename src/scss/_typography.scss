@@ -24,6 +24,7 @@
 ===================================================================== */
 body {
   font-family: var(--font__primary);
+  font-size: jm_calculate-rem(24);
   line-height: jm_calculate-lh(24, 24);
   @include jm_text-properties;
 }
