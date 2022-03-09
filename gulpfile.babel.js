@@ -7,22 +7,47 @@ import gulpif from 'gulp-if';
 import postcss from 'gulp-postcss';
 import sourcemaps from 'gulp-sourcemaps';
 import autoprefixer from 'autoprefixer';
-// import imagemin from 'gulp-imagemin';
 import del from 'del';
 import webpack from 'webpack-stream';
 import browserSync from 'browser-sync';
 import embedSVG from 'gulp-embed-svg';
-
-// TODO: HTML Includes: https://dev.to/caiojhonny/html-includes-with-gulp-js-2def
-// TODO: Add paths, example: 1) https://css-tricks.com/just-sharing-my-gulpfile/ + 2) https://www.sitepoint.com/introduction-gulp-js/
+import njk from 'gulp-nunjucks-render';
 
 const PRODUCTION = yargs.argv.prod;
 const autoReload = browserSync.create();
 const sass = gulpSass(nodeSass);
 
+const paths = {
+  html: {
+    src: 'src/html/pages/*.+(html|njk)',
+    dest: 'dist',
+  },
+  styles: {
+    src: 'src/scss/app.scss',
+    dest: 'dist/css',
+  },
+  images: {
+    src: 'src/images/**/*.+(jpg|jpeg|png|svg|gif|webp)',
+    dest: 'dist/images',
+  },
+  copy: {
+    src: [
+      'src/**/*',
+      '!src/{html,images,js,scss}',
+      '!src/{html,images,js,scss}/**/*',
+    ],
+    dest: 'dist',
+  },
+  scripts: {
+    src: 'src/js/app.js',
+    dest: 'dist/js',
+  },
+};
+
 export const serve = (done) => {
   autoReload.init({
     server: {
+      browser: '/mnt/c/Program Files/Firefox Developer Edition/firefox.exe',
       baseDir: 'dist/',
     },
   });
@@ -36,40 +61,38 @@ export const reload = (done) => {
 
 export const clean = () => del(['dist']);
 
+export const html = () => {
+  return src(paths.html.src)
+    .pipe(
+      njk({
+        path: ['src/html/'],
+      })
+    )
+    .pipe(embedSVG({ root: 'src/images', xmlMode: false }))
+    .pipe(dest(paths.html.dest));
+};
+
 export const styles = () => {
-  return src('src/scss/app.scss')
+  return src(paths.styles.src)
     .pipe(gulpif(!PRODUCTION, sourcemaps.init()))
     .pipe(sass().on('error', sass.logError))
     .pipe(gulpif(PRODUCTION, postcss([autoprefixer])))
-    .pipe(gulpif(PRODUCTION, cleanCss({ compatibility: 'ie8' })))
+    .pipe(gulpif(PRODUCTION, cleanCss({ compatibility: 'ie10' })))
     .pipe(gulpif(!PRODUCTION, sourcemaps.write()))
-    .pipe(dest('dist/css'))
+    .pipe(dest(paths.styles.dest))
     .pipe(autoReload.stream());
 };
 
-export const inlineSVG = () => {
-  return src('src/**/*.html')
-    .pipe(embedSVG({ root: 'src/images', xmlMode: false }))
-    .pipe(dest('dist'));
+export const images = () => {
+  return src(paths.images.src).pipe(dest(paths.images.dest));
 };
 
-// export const images = () => {
-//   return src('src/images/**/*.{jpg,jpeg,png,svg,gif,webp}')
-//     .pipe(gulpif(PRODUCTION, imagemin()))
-//     .pipe(dest('dist/images'));
-// };
-
 export const copy = () => {
-  return src([
-    'src/**/*',
-    '!src/**/*.html',
-    '!src/{images,js,scss}',
-    '!src/{images,js,scss}/**/*',
-  ]).pipe(dest('dist'));
+  return src(paths.copy.src).pipe(dest(paths.copy.dest));
 };
 
 export const scripts = () => {
-  return src('src/js/app.js')
+  return src(paths.scripts.src)
     .pipe(
       webpack({
         module: {
@@ -92,19 +115,18 @@ export const scripts = () => {
         },
       })
     )
-    .pipe(dest('dist/js'));
+    .pipe(dest(paths.scripts.dest));
 };
 
-export const watchForChanges = () => {
-  watch('src/**/*.html', series(inlineSVG, reload));
+export const watchFiles = () => {
+  watch('src/html/**/*', series(html, reload));
   watch('src/scss/**/*.scss', series(styles));
-  watch('src/images/**/*.{jpg,jpeg,png,svg,gif,webp}', series(reload));
+  watch('src/images/**/*.+(jpg|jpeg|png|svg|gif|webp)', series(images, reload));
   watch(
     [
       'src/**/*',
-      '!src/**/*.html',
-      '!src/{images,js,scss}',
-      '!src/{images,js,scss}/**/*',
+      '!src/{html,images,js,scss}',
+      '!src/{html,images,js,scss}/**/*',
     ],
     series(copy, reload)
   );
@@ -113,9 +135,12 @@ export const watchForChanges = () => {
 
 export const dev = series(
   clean,
-  parallel(inlineSVG, styles, copy, scripts),
+  parallel(html, styles, images, copy, scripts),
   serve,
-  watchForChanges
+  watchFiles
 );
-export const build = series(clean, parallel(inlineSVG, styles, copy, scripts));
+export const build = series(
+  clean,
+  parallel(html, styles, images, copy, scripts)
+);
 export default dev;
