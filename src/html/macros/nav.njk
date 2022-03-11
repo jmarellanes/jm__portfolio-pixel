@@ -1,0 +1,17 @@
+{% macro nav(label, position) %}
+	{% set isActive = 'is-active' if label === 'about'%}
+
+	<li class='tabs__nav-item tabs__nav-item--{{ label }} {{ isActive }}' role='presentation'>
+		<button 
+		 id='tab-label-{{ label }}' 
+		 role='tab'
+		 tabindex={{ '0' if position === 1 else '-1' }}
+		 aria-controls='tab-panel-{{ label }}' 
+		 aria-selected={{ 'true' if position === 1 else 'false' }} 
+		 aria-setsize='3' 
+		 aria-posinset={{ position }}>
+			<span>{{ label }}</span>
+		</button>
+	</li>
+
+{% endmacro %}

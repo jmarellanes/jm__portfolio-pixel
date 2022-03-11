@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preload" href="css/app.css" as="style"/>
+    <link rel="stylesheet" href="css/app.css"/>
+    <script src="js/app.js" defer></script>
+
+    <title>My Portfolio | {{ page_name }}</title>
+  </head>
+  <body class="{{ page_name }}">
+    {% include "partials/header.njk" %}
+    <div class="main">
+      {% block content %}{% endblock %}
+    </div>
+    {% include "partials/footer.njk" %}
+  </body>
+</html>
