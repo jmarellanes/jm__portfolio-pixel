@@ -11,10 +11,12 @@
     <title>My Portfolio | {{ page_name }}</title>
   </head>
   <body class="{{ page_name }}">
-    {% include "partials/header.njk" %}
-    <div class="main">
-      {% block content %}{% endblock %}
+    <div class='{{ page_name | lower }}__wrapper'>
+      {% include "partials/header.njk" %}
+      <div class="main">
+        {% block content %}{% endblock %}
+      </div>
+      {% include "partials/footer.njk" %}
     </div>
-    {% include "partials/footer.njk" %}
   </body>
 </html>

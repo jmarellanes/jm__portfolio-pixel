@@ -6,7 +6,7 @@
 {% block content %}
 
   {% for section in sections %}
-    {{ sectionsContent.section(section.label, loop.index)}}
+    {{ sectionsContent.section(section.content, loop.index)}}
   {% endfor %}
 
 {% endblock %}

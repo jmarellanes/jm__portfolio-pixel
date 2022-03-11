@@ -5,8 +5,17 @@
     { "label": "freelance-works" }
   ],
   "sections": [
-    { "label": "about" },
-    { "label": "portfolio" },
-    { "label": "freelance-works" }
+    {
+      "label": "about",
+      "content": "Chuck Norris is so fast, he can run around the world and punch himself in the back of the head What was going through the minds of all of Chuck Norris' victims before they died? His shoe. "
+    },
+    {
+      "label": "portfolio",
+      "content": "There is no theory of evolution. Just a list of animals Chuck Norris allows to live There is no chin behind Chuck Norris' beard. There is only another fist."
+    },
+    {
+      "label": "freelance-works",
+      "content": "Chuck Norris won the Tour De France with two flat tires and a broken chain, Chuck Noris can touch this. Chuck Norris unlocked the Nuke killstreak. In Black ops, Chuck Norris can win a game of Connect Four in only three moves."
+    }
   ]
 }
