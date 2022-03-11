@@ -1,14 +1,17 @@
-{% import '../macros/nav.njk' as navTab %}
+{% import "../macros/nav.njk" as navTab %}
 
-<header>
-	<div class="header__container">
+<header class="header-main">
+	<div class="header-main__container">
 
-		<nav>
-			<ul class='tabs__nav-list' role='tablist'>
+		<nav class="header-main__nav nav-main" aria-labelledby="main-menu">
+
+			<h2 id="main-menu" hidden>Main Menu</h2>
+			<ul class="nav-main__element tabs__nav-list" role="tablist">
 				{% for button in buttons %}
 					{{ navTab.nav(button.label, loop.index)}}
 				{% endfor %}
 			</ul>
+
 		</nav>
 
 	</div>
