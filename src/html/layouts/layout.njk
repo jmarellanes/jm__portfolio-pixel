@@ -1,3 +1,5 @@
+{% set page = page_name | lower %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,13 +12,17 @@
 
     <title>My Portfolio | {{ page_name }}</title>
   </head>
-  <body class="{{ page_name }}">
-    <div class='{{ page_name | lower }}__wrapper'>
+  <body class="{{ page }}">
+    <div id="{{ page }}__wrapper">
+
       {% include "partials/header.njk" %}
-      <div class="main">
+
+      <main class="{{ page }} {{ page }}__content">
         {% block content %}{% endblock %}
-      </div>
+      </main>
+
       {% include "partials/footer.njk" %}
+
     </div>
   </body>
 </html>
