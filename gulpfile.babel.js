@@ -12,6 +12,8 @@ import webpack from 'webpack-stream';
 import browserSync from 'browser-sync';
 import embedSVG from 'gulp-embed-svg';
 import njk from 'gulp-nunjucks-render';
+import data from 'gulp-data';
+import fs from 'fs';
 
 const PRODUCTION = yargs.argv.prod;
 const autoReload = browserSync.create();
@@ -63,6 +65,11 @@ export const clean = () => del(['dist']);
 
 export const html = () => {
   return src(paths.html.src)
+    .pipe(
+      data(function (file) {
+        return JSON.parse(fs.readFileSync('src/data/home.json'));
+      })
+    )
     .pipe(
       njk({
         path: ['src/html/'],

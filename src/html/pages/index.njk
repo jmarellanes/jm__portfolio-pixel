@@ -1,22 +1,12 @@
-{% import 'macros/sections.njk' as sectionsTab %}
+{% import 'macros/sections.njk' as sectionsContent %}
 
 {% set page_name = 'Home' %}
 {% extends "layouts/layout.njk" %}
 
-{% set sectionContent = [
-	{
-		'label': 'about'
-	}, {
-		'label': 'portfolio'
-	}, {
-		'label': 'freelance-works'
-	}
-] %}
-
 {% block content %}
 
-  {% for section in sectionContent %}
-    {{ sectionsTab.section(section.label, loop.index)}}
+  {% for section in sections %}
+    {{ sectionsContent.section(section.label, loop.index)}}
   {% endfor %}
 
 {% endblock %}

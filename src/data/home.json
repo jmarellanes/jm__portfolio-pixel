@@ -1,0 +1,12 @@
+{
+  "buttons": [
+    { "label": "about" },
+    { "label": "portfolio" },
+    { "label": "freelance-works" }
+  ],
+  "sections": [
+    { "label": "about" },
+    { "label": "portfolio" },
+    { "label": "freelance-works" }
+  ]
+}

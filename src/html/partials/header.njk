@@ -1,21 +1,11 @@
 {% import '../macros/nav.njk' as navTab %}
 
-{% set buttonContent = [
-	{
-		'label': 'about'
-	}, {
-		'label': 'portfolio'
-	}, {
-		'label': 'freelance-works'
-	}
-] %}
-
 <header>
 	<div class="header__container">
 
 		<nav>
 			<ul class='tabs__nav-list' role='tablist'>
-				{% for button in buttonContent %}
+				{% for button in buttons %}
 					{{ navTab.nav(button.label, loop.index)}}
 				{% endfor %}
 			</ul>
