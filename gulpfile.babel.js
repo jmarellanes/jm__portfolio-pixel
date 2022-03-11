@@ -66,7 +66,7 @@ export const clean = () => del(['dist']);
 export const html = () => {
   return src(paths.html.src)
     .pipe(
-      data(function (file) {
+      data(function () {
         return JSON.parse(fs.readFileSync('src/data/home.json'));
       })
     )
