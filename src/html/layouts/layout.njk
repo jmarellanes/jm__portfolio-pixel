@@ -14,15 +14,11 @@
   </head>
   <body class="{{ page }}">
     <div id="{{ page }}__wrapper">
-
       {% include "partials/header.njk" %}
 
       <main class="{{ page }} {{ page }}__content">
         {% block content %}{% endblock %}
       </main>
-
-      {% include "partials/footer.njk" %}
-
     </div>
   </body>
 </html>

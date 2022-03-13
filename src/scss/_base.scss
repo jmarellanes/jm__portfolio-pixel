@@ -30,6 +30,8 @@ html {
 body {
   color: var(--color__text--main);
   background-color: var(--color__bg--main);
+
+  @include jm__bg-grid;
 } // -> body
 
 /* =====================================================================

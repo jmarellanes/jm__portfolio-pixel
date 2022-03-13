@@ -1,0 +1,55 @@
+.tabs {
+  &__panel {
+    display: none;
+    opacity: 0;
+
+    &.is-active {
+      display: block;
+      opacity: 1;
+    }
+  }
+
+  &__content {
+    --dialog-shape-height: 72px;
+    --border-square-size: 12px;
+    --border-total-size: 42px;
+
+    position: relative;
+
+    border-image: url(../../images/border__section.svg);
+    border-width: var(--border-total-size);
+    border-image-slice: 42;
+    border-style: solid;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(
+        100% + calc(var(--border-total-size) - var(--border-square-size))
+      );
+      left: 50%;
+      transform: translateX(-50%);
+
+      height: var(--dialog-shape-height);
+      width: 92px;
+      background-image: url(../../images/border__dialog-shape.svg);
+      background-repeat: no-repeat;
+    }
+
+    span {
+      display: inline-block;
+      text-align: center;
+      background-color: var(--color__comp--02);
+    }
+  }
+
+  &__dude {
+    text-align: right;
+    margin-top: var(--spacer__24);
+    margin-right: var(--spacer__24);
+
+    svg {
+      vertical-align: bottom; // Remove whitespace (gap) between svg and div
+    }
+  }
+}

@@ -1,4 +1,4 @@
-{% macro section(label, position) %}
+{% macro section(label, content, position, dude) %}
 	{% set isActive = 'is-active' if label === 'about'%}
 
 	<section 
@@ -7,7 +7,12 @@
 	 aria-labelledby='tab-label-{{ label }}' 
 	 role='tabpanel' 
 	 tabindex='-1'>
-		<p>{{ label }}</p>
+		<p class="tabs__content">
+			<span>{{ content }}</span>
+		</p>
+		<div class="tabs__dude">
+			<svg src="{{ dude }}.svg"></svg>
+		</div>
 	</section>
 
 {% endmacro %}

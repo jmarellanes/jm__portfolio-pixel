@@ -4,4 +4,18 @@
   padding: 1.5rem 2rem 0;
 
   background-color: var(--color__bg--inner);
+  @include jm__bg-grid;
+}
+
+.home {
+  &__content {
+    display: grid;
+
+    margin-top: var(--spacer__24);
+  }
+
+  & > section {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
 }

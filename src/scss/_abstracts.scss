@@ -6,6 +6,17 @@
   font-style: normal;
 }
 
+@mixin jm__bg-grid {
+  background-size: 48px 48px;
+  background-image: linear-gradient(
+      to right,
+      var(--color__comp--01) 2px,
+      transparent 2px
+    ),
+    linear-gradient(to bottom, var(--color__comp--01) 2px, transparent 2px);
+  background-position: center 10px;
+}
+
 /* =====================================================================
   -> FUNCTIONS
 ===================================================================== */
