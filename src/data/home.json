@@ -1,21 +1,24 @@
 {
   "buttons": [
-    { "label": "about", "icon": "icon__dinogrr.svg" },
-    { "label": "portfolio", "icon": "icon__code.svg" },
-    { "label": "freelance-works", "icon": "icon__portfolio.svg" }
+    { "label": "about", "icon": "icon__dinogrr" },
+    { "label": "portfolio", "icon": "icon__code" },
+    { "label": "freelance-works", "icon": "icon__portfolio" }
   ],
   "sections": [
     {
       "label": "about",
-      "content": "Chuck Norris is so fast, he can run around the world and punch himself in the back of the head What was going through the minds of all of Chuck Norris' victims before they died? His shoe. "
+      "content": "Chuck Norris is so fast, he can run around the world and punch himself in the back of the head What was going through the minds of all of Chuck Norris' victims before they died? His shoe. ",
+      "dude": "dude--right"
     },
     {
       "label": "portfolio",
-      "content": "There is no theory of evolution. Just a list of animals Chuck Norris allows to live There is no chin behind Chuck Norris' beard. There is only another fist."
+      "content": "There is no theory of evolution. Just a list of animals Chuck Norris allows to live There is no chin behind Chuck Norris' beard. There is only another fist.",
+      "dude": "dude--right"
     },
     {
       "label": "freelance-works",
-      "content": "Chuck Norris won the Tour De France with two flat tires and a broken chain, Chuck Noris can touch this. Chuck Norris unlocked the Nuke killstreak. In Black ops, Chuck Norris can win a game of Connect Four in only three moves."
+      "content": "Chuck Norris won the Tour De France with two flat tires and a broken chain, Chuck Noris can touch this. Chuck Norris unlocked the Nuke killstreak. In Black ops, Chuck Norris can win a game of Connect Four in only three moves.",
+      "dude": "dude--right"
     }
   ]
 }
