@@ -1,16 +1,21 @@
-{% macro nav(label, position) %}
-	{% set isActive = 'is-active' if label === 'about'%}
+{% macro nav(label, position, icon) %}
+	{% set isActive = "is-active" if label === "about"%}
 
-	<li class='tabs__nav-item tabs__nav-item--{{ label }} {{ isActive }} nav-main__item' role='presentation'>
+	<li class="tabs__nav-item tabs__nav-item--{{ label }} {{ isActive }} nav-main__item" role="presentation">
 		<button 
-		 id='tab-label-{{ label }} nav-main__button' 
-		 role='tab'
-		 tabindex={{ '0' if position === 1 else '-1' }}
-		 aria-controls='tab-panel-{{ label }}' 
-		 aria-selected={{ 'true' if position === 1 else 'false' }} 
-		 aria-setsize='3' 
-		 aria-posinset={{ position }}>
-			<span>{{ label }}</span>
+		 id="tab-label-{{ label }}" 
+		 class="nav-main__button"
+		 role="tab"
+		 tabindex={{ "0" if position === 1 else "-1" }}
+		 aria-controls="tab-panel-{{ label }}" 
+		 aria-selected={{ "true" if position === 1 else "false" }} 
+		 aria-setsize="3" 
+		 aria-posinset={{ position }}
+		 aria-labelledby="button-label--{{ label }}">
+			<span id="button-label--{{ label }}" hidden>{{ label }}</span>
+			<svg src="{{ icon }}" class="nav-menu__icon"></svg>
+			<span class="nav-main__button-pixel--top"></span>
+			<span class="nav-main__button-pixel--bottom"></span>
 		</button>
 	</li>
 

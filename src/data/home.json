@@ -1,8 +1,8 @@
 {
   "buttons": [
-    { "label": "about" },
-    { "label": "portfolio" },
-    { "label": "freelance-works" }
+    { "label": "about", "icon": "icon__dinogrr.svg" },
+    { "label": "portfolio", "icon": "icon__code.svg" },
+    { "label": "freelance-works", "icon": "icon__portfolio.svg" }
   ],
   "sections": [
     {

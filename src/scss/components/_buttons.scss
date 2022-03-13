@@ -1,0 +1,124 @@
+/* =====================================================================
+  -> BUTTON
+===================================================================== */
+// BUTTON RESET
+button {
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+// END RESET
+
+.nav-main {
+  --dimentions: 72px;
+  --border-size: 2px;
+  --button-inner: 62px;
+  --button-outer: 10px;
+
+  &__item {
+    margin-right: 3px;
+    box-shadow: -3px 0 0 0 var(--color__button--border),
+      3px 0 0 0 var(--color__button--border),
+      0 -3px 0 0 var(--color__button--border),
+      0 3px 0 0 var(--color__button--border);
+  }
+
+  &__button {
+    position: relative;
+    z-index: 1;
+
+    width: var(--dimentions);
+    height: calc(var(--button-inner) + var(--button-outer));
+
+    box-shadow: 0 5px 0 0 rgba(42, 13, 102, 0.6),
+      0 7px 0 0 rgba(42, 13, 102, 0.3), 0 9px 0 0 rgba(42, 13, 102, 0.2);
+    transition: height var(--duration__250) var(--easing--s);
+
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      left: 0;
+
+      width: inherit;
+      transition: background-color var(--duration__350) var(--easing--s);
+    }
+
+    &::after {
+      top: 0;
+
+      height: var(--button-inner);
+      background-color: var(--color__secd);
+    }
+
+    &::before {
+      bottom: 0;
+
+      height: var(--button-outer);
+      background-color: var(--color__secd-shade--1);
+    }
+
+    &-pixel {
+      &--top,
+      &--bottom {
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          width: 3px;
+          height: 3px;
+          background-color: var(--color__secd-shade--1);
+        }
+
+        &::after {
+          left: calc(100% - 3px);
+        }
+      }
+
+      &--bottom {
+        &::before,
+        &::after {
+          top: calc(100% - 13px);
+
+          transition: top var(--duration__250) var(--easing--s);
+        }
+      }
+    }
+
+    &[aria-selected='true'] {
+      --active-height: 56px;
+      height: calc(var(--active-height) + var(--button-outer));
+
+      &::after {
+        background-color: var(--color__secd-shade--1);
+      }
+
+      &::before {
+        background: var(--color__secd-shade--2);
+      }
+
+      .nav-main__button-pixel {
+        &--top,
+        &--bottom {
+          &::before,
+          &::after {
+            background-color: var(--color__secd-shade--2);
+          }
+        }
+
+        &--bottom {
+          &::before,
+          &::after {
+            top: calc(100% - 7px);
+          }
+        }
+      }
+    }
+  }
+}

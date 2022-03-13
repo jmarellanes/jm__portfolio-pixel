@@ -10,6 +10,7 @@
   --color__text--headings: var(--thm-light__primary);
   --color__text--main: var(--thm-light__primary--shade-2);
   --color__text--highligth: var(--thm-light__complementary-3);
+  --color__button--border: var(--thm-light__primary--shade-2);
 
   --color__secd: var(--thm-light__secondary);
   --color__secd-shade--1: var(--thm-light__secondary--shade-1);
@@ -46,12 +47,12 @@
   ===================================================================== */
   --font__headings: 'munro_small', sans-serif;
   --font__primary: 'munro_small', sans-serif;
-  --duration__250: 250ms;
-  --duration__350: 350ms;
 
   /* =====================================================================
     -> MIX CSS CUSTOM PROPERTIES
   ===================================================================== */
+  --duration__250: 250ms;
+  --duration__350: 350ms;
   --easing--xl: cubic-bezier(0.8, 0, 0.2, 1);
   --easing--s: cubic-bezier(0.5, 0.7, 0.4, 1);
 }
