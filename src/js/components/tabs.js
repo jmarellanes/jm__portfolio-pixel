@@ -51,16 +51,16 @@ function tabs() {
     const liActive = document.activeElement.parentNode;
     if (!keyPressed || !liActive.classList.contains('tabs__nav-item')) return;
 
+    const liArray = Array.from(liActive.parentNode.children);
+    const firstElement = liArray[0].firstElementChild;
+    const lastElement = liArray[liArray.length - 1].firstElementChild;
+    const liTargetIndex = liArray.indexOf(liActive);
+
     function updateElements(index, array = liArray, nodeList = sectionList) {
       changeActiveButton(index, array);
       changeActiveSection(index, nodeList);
       array[index].firstElementChild.focus();
     }
-
-    const liArray = Array.from(liActive.parentNode.children);
-    const firstElement = liArray[0].firstElementChild;
-    const lastElement = liArray[liArray.length - 1].firstElementChild;
-    const liTargetIndex = liArray.indexOf(liActive);
 
     switch (e.key) {
       case RIGHT_ARROW:
