@@ -2,12 +2,12 @@ function tabs() {
   const isActive = 'is-active';
   const sectionList = document.querySelectorAll('.home__content > section');
 
-  const updateAttributes = (el, boolean, number) => {
-    el.firstElementChild.setAttribute('aria-selected', boolean);
-    el.firstElementChild.setAttribute('tabindex', number);
-  };
-
   const changeActiveButton = (i, array) => {
+    function updateAttributes(el, isSelected, value) {
+      el.firstElementChild.setAttribute('aria-selected', isSelected);
+      el.firstElementChild.setAttribute('tabindex', value);
+    }
+
     array.forEach((element, index) => {
       index === i
         ? updateAttributes(element, true, 0)
@@ -45,37 +45,38 @@ function tabs() {
       LEFT_ARROW = 'ArrowLeft',
       RIGHT_ARROW = 'ArrowRight';
 
-    const itemActive = document.activeElement.parentNode;
-    const tabEl = Array.from(itemActive.parentNode.children);
-    const firstTabEl = tabEl[0].firstElementChild;
-    const lastTabEl = tabEl[tabEl.length - 1].firstElementChild;
-    const liTargetIndex = tabEl.indexOf(itemActive);
+    // prettier-ignore
+    let keyPressed = e.key === UP_ARROW || e.key === DOWN_ARROW || e.key === LEFT_ARROW || e.key === RIGHT_ARROW;
+
+    const liActive = document.activeElement.parentNode;
+    if (!keyPressed || !liActive.classList.contains('tabs__nav-item')) return;
+
+    function updateElements(index, array = liArray, nodeList = sectionList) {
+      changeActiveButton(index, array);
+      changeActiveSection(index, nodeList);
+      array[index].firstElementChild.focus();
+    }
+
+    const liArray = Array.from(liActive.parentNode.children);
+    const firstElement = liArray[0].firstElementChild;
+    const lastElement = liArray[liArray.length - 1].firstElementChild;
+    const liTargetIndex = liArray.indexOf(liActive);
 
     switch (e.key) {
       case RIGHT_ARROW:
       case DOWN_ARROW:
-        if (document.activeElement === lastTabEl) {
-          changeActiveButton(0, tabEl);
-          changeActiveSection(0, sectionList);
-          tabEl[0].firstElementChild.focus();
-        } else {
-          changeActiveButton(liTargetIndex + 1, tabEl);
-          changeActiveSection(liTargetIndex + 1, sectionList);
-          tabEl[liTargetIndex + 1].firstElementChild.focus();
-        }
+        document.activeElement === lastElement
+          ? updateElements(0)
+          : updateElements(liTargetIndex + 1);
+
         break;
 
       case LEFT_ARROW:
       case UP_ARROW:
-        if (document.activeElement === firstTabEl) {
-          changeActiveButton(tabEl.length - 1, tabEl);
-          changeActiveSection(tabEl.length - 1, sectionList);
-          tabEl[tabEl.length - 1].firstElementChild.focus();
-        } else {
-          changeActiveButton(liTargetIndex - 1, tabEl);
-          changeActiveSection(liTargetIndex - 1, sectionList);
-          tabEl[liTargetIndex - 1].firstElementChild.focus();
-        }
+        document.activeElement === firstElement
+          ? updateElements(liArray.length - 1)
+          : updateElements(liTargetIndex - 1);
+
         break;
 
       default:
