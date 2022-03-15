@@ -1,40 +1,46 @@
 function tabs() {
-  const changeTabWithClick = (e) => {
-    const button = e.target;
-    const buttonParent = button.parentNode; // li element
-    const isActive = 'is-active';
+  const isActive = 'is-active';
+
+  const updateAttributes = (el, boolean, number) => {
+    el.firstElementChild.setAttribute('aria-selected', boolean);
+    el.firstElementChild.setAttribute('tabindex', number);
+  };
+
+  const changeActiveButton = (i, array) => {
+    array.forEach((element, index) => {
+      index === i
+        ? updateAttributes(element, true, 0)
+        : updateAttributes(element, false, -1);
+    });
+  };
+
+  const changeActiveSection = (i, nodeList) => {
+    nodeList.forEach((element, index) => {
+      index === i
+        ? element.classList.add(isActive)
+        : element.classList.remove(isActive);
+    });
+  };
+
+  const handleClick = (e) => {
+    const buttonTarget = e.target;
+    const buttonTargetParent = buttonTarget.parentNode; // li element
+    const sectionList = document.querySelectorAll('.home__content > section');
 
     const stopFunction =
-      button.tagName.toLowerCase() !== 'button' ||
-      buttonParent.classList.contains(isActive);
+      buttonTarget.tagName.toLowerCase() !== 'button' ||
+      buttonTarget.getAttribute('aria-selected') === 'true';
     if (stopFunction) return;
 
-    const liElementActive = [...buttonParent.parentElement.children].find(
-      (el) => el.classList.contains(isActive)
-    );
-    const [previousActiveButton] = liElementActive.children;
+    const liArray = Array.from(buttonTargetParent.parentElement.children);
+    const liTargetIndex = liArray.indexOf(buttonTargetParent);
 
-    const nextBtnAttr = button.getAttribute('aria-controls');
-    const previousBtnAttr = previousActiveButton.getAttribute('aria-controls');
-    const sectionToShow = document.querySelector(`section#${nextBtnAttr}`);
-    const sectionToHide = document.querySelector(`section#${previousBtnAttr}`);
-
-    // Nav Updates
-    previousActiveButton.setAttribute('aria-selected', false);
-    previousActiveButton.setAttribute('tabindex', '-1');
-    button.setAttribute('aria-selected', true);
-    button.setAttribute('tabindex', '0');
-
-    liElementActive.classList.remove(isActive);
-    buttonParent.classList.add(isActive);
-
-    // Section Updates
-    sectionToHide.classList.remove(isActive);
-    sectionToShow.classList.add(isActive);
+    changeActiveButton(liTargetIndex, liArray);
+    changeActiveSection(liTargetIndex, sectionList);
   };
 
   const navEl = document.querySelector('.nav-main__element');
-  navEl.addEventListener('click', changeTabWithClick);
+  navEl.addEventListener('click', handleClick);
 }
 
 export { tabs };

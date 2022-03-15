@@ -1,7 +1,6 @@
 {% macro nav(label, position, icon) %}
-	{% set isActive = "is-active" if label === "about"%}
 
-	<li class="tabs__nav-item tabs__nav-item--{{ label }} {{ isActive }} nav-main__item" role="presentation">
+	<li class="tabs__nav-item tabs__nav-item--{{ label }}  nav-main__item" role="presentation">
 		<button 
 		 id="tab-label-{{ label }}" 
 		 class="nav-main__button"

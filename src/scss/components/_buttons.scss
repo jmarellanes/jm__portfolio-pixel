@@ -101,11 +101,11 @@ button {
       height: calc(var(--active-height) + var(--button-outer));
 
       &::after {
-        // background-color: var(--color__secd-shade--1);
+        background-color: var(--color__secd-shade--1);
       }
 
       &::before {
-        // background: var(--color__secd-shade--2);
+        background: var(--color__secd-shade--2);
       }
 
       .nav-main__button-pixel {
@@ -113,7 +113,7 @@ button {
         &--bottom {
           &::before,
           &::after {
-            // background-color: var(--color__secd-shade--2);
+            background-color: var(--color__secd-shade--2);
           }
         }
 
