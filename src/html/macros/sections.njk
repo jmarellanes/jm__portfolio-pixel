@@ -1,4 +1,4 @@
-{% macro section(label, content, position, dude) %}
+{% macro section(label, content, position, folk) %}
 	{% set isActive = 'is-active' if label === 'about' %}
 	{% set ariaHidden = 'aria-hidden=true' %}
 
@@ -9,11 +9,11 @@
 	 {{ ariaHidden if label !== 'about'}}
 	 role='tabpanel' 
 	 tabindex='-1'>
-		<p class="tabs__content">
-			<span>{{ content }}</span>
-		</p>
-		<div class="tabs__dude">
-			<svg src="{{ dude }}.svg"></svg>
+		<div class="tabs__content tabs__content--{{ label }}">
+			<p>{{ content }}</p>
+		</div>
+		<div class="tabs__folk tabs__folk--0{{ position }}">
+			<svg src="{{ folk }}.svg"></svg>
 		</div>
 	</section>
 
