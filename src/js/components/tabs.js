@@ -1,5 +1,6 @@
 function tabs() {
   const isActive = 'is-active';
+  const isFading = 'is-fading';
   const sectionList = document.querySelectorAll('.home__content > section');
 
   const changeActiveButton = (i, array) => {
@@ -15,11 +16,22 @@ function tabs() {
     });
   };
 
-  const changeActiveSection = (i, nodeList) => {
+  const changeActiveSection = (i, nodeList, activeIndex) => {
     nodeList.forEach((element, index) => {
-      index === i
-        ? element.classList.add(isActive)
-        : element.classList.remove(isActive);
+      if (index === i) {
+        element.classList.remove(isFading);
+        setTimeout(() => {
+          element.classList.add(isActive);
+          element.removeAttribute('aria-hidden');
+        }, 250);
+      } else if (index === activeIndex) {
+        element.classList.add(isFading);
+        element.classList.remove(isActive);
+        element.setAttribute('aria-hidden', true);
+      } else {
+        element.classList.remove(isActive, isFading);
+        element.setAttribute('aria-hidden', true);
+      }
     });
   };
 
@@ -33,10 +45,14 @@ function tabs() {
     if (stopFunction) return;
 
     const liArray = Array.from(buttonTargetParent.parentElement.children);
+    const liActive = liArray.find(
+      (el) => el.firstElementChild.getAttribute('aria-selected') === 'true'
+    );
+    const liActiveIndex = liArray.indexOf(liActive);
     const liTargetIndex = liArray.indexOf(buttonTargetParent);
 
     changeActiveButton(liTargetIndex, liArray);
-    changeActiveSection(liTargetIndex, sectionList);
+    changeActiveSection(liTargetIndex, sectionList, liActiveIndex);
   };
 
   const handleKeyDown = (e) => {
@@ -48,17 +64,28 @@ function tabs() {
     // prettier-ignore
     let keyPressed = e.key === UP_ARROW || e.key === DOWN_ARROW || e.key === LEFT_ARROW || e.key === RIGHT_ARROW;
 
-    const liActive = document.activeElement.parentNode;
-    if (!keyPressed || !liActive.classList.contains('tabs__nav-item')) return;
+    const liFocusActive = document.activeElement.parentNode;
+    if (!keyPressed || !liFocusActive.classList.contains('tabs__nav-item')) {
+      return;
+    }
 
-    const liArray = Array.from(liActive.parentNode.children);
+    const liArray = Array.from(liFocusActive.parentNode.children);
     const firstElement = liArray[0].firstElementChild;
     const lastElement = liArray[liArray.length - 1].firstElementChild;
-    const liTargetIndex = liArray.indexOf(liActive);
+    const liBeforeActive = liArray.find(
+      (el) => el.firstElementChild.getAttribute('aria-selected') === 'true'
+    );
+    const liActiveIndex = liArray.indexOf(liBeforeActive);
+    const liTargetIndex = liArray.indexOf(liFocusActive);
 
-    function updateElements(index, array = liArray, nodeList = sectionList) {
+    function updateElements(
+      index,
+      array = liArray,
+      nodeList = sectionList,
+      activeIndex = liActiveIndex
+    ) {
       changeActiveButton(index, array);
-      changeActiveSection(index, nodeList);
+      changeActiveSection(index, nodeList, activeIndex);
       array[index].firstElementChild.focus();
     }
 
@@ -68,7 +95,6 @@ function tabs() {
         document.activeElement === lastElement
           ? updateElements(0)
           : updateElements(liTargetIndex + 1);
-
         break;
 
       case LEFT_ARROW:
@@ -76,7 +102,6 @@ function tabs() {
         document.activeElement === firstElement
           ? updateElements(liArray.length - 1)
           : updateElements(liTargetIndex - 1);
-
         break;
 
       default:
