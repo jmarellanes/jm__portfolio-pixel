@@ -1,11 +1,20 @@
 .tabs {
   &__panel {
-    display: none;
+    visibility: hidden;
     opacity: 0;
 
     &.is-active {
-      display: block;
+      visibility: visible;
       opacity: 1;
+
+      animation: showSection var(--duration__250) var(--easing__s) forwards;
+    }
+
+    &.is-fading {
+      visibility: hidden;
+      opacity: 0;
+
+      animation: hideSection 150ms var(--easing__s) forwards;
     }
   }
 
@@ -50,6 +59,33 @@
 
     svg {
       vertical-align: bottom; // Remove whitespace (gap) between svg and div
+    }
+  }
+
+  @keyframes showSection {
+    0% {
+      visibility: hidden;
+      opacity: 0;
+    }
+    1% {
+      visibility: visible;
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes hideSection {
+    0% {
+      visibility: visible;
+      opacity: 1;
+    }
+    99% {
+      opacity: 0;
+    }
+    100% {
+      visibility: hidden;
     }
   }
 }
