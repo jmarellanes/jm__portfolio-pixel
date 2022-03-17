@@ -7,7 +7,7 @@
   "sections": [
     {
       "label": "about",
-      "content": "Chuck Norris is so fast, he can run around the world and punch himself in the back of the head What was going through the minds of all of Chuck Norris' victims before they died? His shoe. ",
+      "content": "<p>Welcome to the portfolio of this fine specimen of UI designer and developer with more than 8 years of experience, working with people from all over the world.</p><p>He Has skylls in: <span>Semantic HTML, CSS, Sass, Javascript, React, Gulp, and more.</span></p>",
       "folk": "folk--01"
     },
     {

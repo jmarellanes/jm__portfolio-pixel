@@ -28,13 +28,15 @@
 
     display: flex;
     flex-direction: column;
+    justify-content: center;
 
     min-height: 16rem;
+    text-align: center;
+
     border-image: url(../../images/border__section.svg);
     border-width: var(--border-total-size);
     border-image-slice: 42;
     border-style: solid;
-    text-align: center;
 
     &::after {
       content: '';
@@ -60,10 +62,6 @@
       background-color: var(--color__comp--02);
     }
 
-    p {
-      align-self: center;
-    }
-
     &--portfolio {
       &::after {
         left: 50%;
@@ -74,6 +72,18 @@
 
   &__title {
     margin-bottom: var(--spacer__8);
+  }
+
+  &__text {
+    margin-bottom: var(--spacer__24);
+
+    & > p:not(:last-child) {
+      margin-bottom: var(--spacer__24);
+    }
+
+    span {
+      color: var(--color__text--highligth);
+    }
   }
 
   &__folk {
