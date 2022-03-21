@@ -1,4 +1,4 @@
-{% import "../macros/linksMenu.njk" as linksMenu %}
+{% import "../macros/navSection.njk" as navLinks %}
 
 {% macro section(label, content, position, folk, links) %}
 	{% set isActive = 'is-active' if label === 'portfolio' %}
@@ -16,7 +16,7 @@
 			<div class="tabs__text">
 				<ul>
 					{% for linkLabel, href in links %}
-						{{ linksMenu.linkItem(linkLabel, href) }}
+						{{ navLinks.navSection(linkLabel, href) }}
 					{% endfor %}
 				</ul>
 				{% for element in content %}

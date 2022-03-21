@@ -1,4 +1,4 @@
-{% import "../macros/nav.njk" as navTab %}
+{% import "../macros/navMain.njk" as navTab %}
 
 <header class="header-main">
 	<div class="header-main__container">
@@ -8,7 +8,7 @@
 			<h2 id="main-menu" hidden>Main Menu</h2>
 			<ul class="nav-main__element tabs__nav-list" role="tablist">
 				{% for button in buttons %}
-					{{ navTab.nav(button.label, loop.index, button.icon)}}
+					{{ navTab.navMain(button.label, loop.index, button.icon)}}
 				{% endfor %}
 			</ul>
 
