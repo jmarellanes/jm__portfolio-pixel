@@ -24,8 +24,8 @@
 ===================================================================== */
 body {
   font-family: var(--font__primary);
-  font-size: jm_calculate-rem(24);
-  line-height: jm_calculate-lh(24, 24);
+  font-size: jm_calculate-rem(20);
+  line-height: jm_calculate-lh(28, 20);
   @include jm_text-properties;
 }
 
@@ -34,12 +34,15 @@ body {
 ===================================================================== */
 h1,
 .h1 {
+  font-family: var(--font__headings);
   font-size: jm_calculate-rem(32);
   line-height: jm_calculate-lh(32, 26);
+  color: var(--color__text--headings);
 }
 
 h2,
 .h2 {
+  font-family: var(--font__headings);
   font-size: jm_calculate-rem(28);
   line-height: jm_calculate-lh(28, 28);
   color: var(--color__text--headings);
