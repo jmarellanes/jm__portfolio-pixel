@@ -52,7 +52,9 @@ function tabs() {
     const liTargetIndex = liArray.indexOf(buttonTargetParent);
 
     changeActiveButton(liTargetIndex, liArray);
-    changeActiveSection(liTargetIndex, sectionList, liActiveIndex);
+    setTimeout(() => {
+      changeActiveSection(liTargetIndex, sectionList, liActiveIndex);
+    }, 200);
   };
 
   const handleKeyDown = (e) => {
@@ -85,7 +87,9 @@ function tabs() {
       activeIndex = liActiveIndex
     ) {
       changeActiveButton(index, array);
-      changeActiveSection(index, nodeList, activeIndex);
+      setTimeout(() => {
+        changeActiveSection(index, nodeList, activeIndex);
+      }, 200);
       array[index].firstElementChild.focus();
     }
 

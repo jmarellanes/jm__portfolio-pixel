@@ -39,7 +39,7 @@ button {
     box-shadow: 0 5px 0 0 rgba(42, 13, 102, 0.6),
       0 7px 0 0 rgba(42, 13, 102, 0.3), 0 9px 0 0 rgba(42, 13, 102, 0.2);
 
-    transition: all var(--duration__250) var(--easing__s);
+    transition: all 250ms var(--easing__s);
     transition-property: height, box-shadow;
 
     &::after,
@@ -50,7 +50,6 @@ button {
       left: 0;
 
       width: inherit;
-      transition: background-color var(--duration__350) var(--easing__s);
     }
 
     &::after {
@@ -92,7 +91,7 @@ button {
         &::after {
           top: calc(100% - 13px);
 
-          transition: top var(--duration__250) var(--easing__s);
+          transition: top 150ms var(--easing__s);
         }
       }
     }
@@ -100,24 +99,9 @@ button {
     &[aria-selected='true'] {
       --active-height: 56px;
       height: calc(var(--active-height) + var(--button-outer));
-
-      &::after {
-        // background-color: var(--color__secd-shade--1);
-      }
-
-      &::before {
-        // background: var(--color__secd-shade--2);
-      }
+      transition: all 150ms var(--easing__s);
 
       .nav-main__button-pixel {
-        &--top,
-        &--bottom {
-          &::before,
-          &::after {
-            // background-color: var(--color__secd-shade--2);
-          }
-        }
-
         &--bottom {
           &::before,
           &::after {
