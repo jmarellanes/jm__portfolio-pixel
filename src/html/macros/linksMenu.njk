@@ -1,0 +1,5 @@
+{% macro linkItem(label, anchor) %}
+	<li>
+		<a href="{{ anchor | safe}}">{{ label | safe }}</a>
+	</li>
+{% endmacro %}

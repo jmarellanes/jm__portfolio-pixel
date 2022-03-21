@@ -1,5 +1,7 @@
-{% macro section(label, content, position, folk) %}
-	{% set isActive = 'is-active' if label === 'about' %}
+{% import "../macros/linksMenu.njk" as linksMenu %}
+
+{% macro section(label, content, position, folk, links) %}
+	{% set isActive = 'is-active' if label === 'portfolio' %}
 	{% set ariaHidden = 'aria-hidden=true' %}
 
 	<section 
@@ -12,7 +14,14 @@
 		<div class="tabs__content tabs__content--{{ label }}">
 			<h2 class="tabs__title">{{ label }}</h2>
 			<div class="tabs__text">
-				{{ content | safe }}
+				<ul>
+					{% for linkLabel, href in links %}
+						{{ linksMenu.linkItem(linkLabel, href) }}
+					{% endfor %}
+				</ul>
+				{% for element in content %}
+					{{ element | safe }}
+				{% endfor %}
 			</div>
 		</div>
 		<div class="tabs__folk tabs__folk--0{{ position }}">
@@ -20,4 +29,4 @@
 		</div>
 	</section>
 
-{% endmacro %}
+{% endmacro %}@♦@

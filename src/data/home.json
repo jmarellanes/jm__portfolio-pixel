@@ -7,17 +7,47 @@
   "sections": [
     {
       "label": "about",
-      "content": "<p>Welcome to the portfolio of this fine specimen of UI designer and developer with more than 8 years of experience, working with people from all over the world.</p><p>He Has skylls in: <span>Semantic HTML, CSS, Sass, Javascript, React, Gulp, and more.</span></p>",
+      "links": [
+        ["Github", "https://www.github.com/jmarellanes"],
+        ["Linkedin", "https://www.linkedin.com/jmarellanes"],
+        ["Resume", "https://www.myresume.com"]
+      ],
+      "content": [
+        [
+          "<p>Hiya folks, meet my friend Jose Manuel, he’s a really cool guy and also a UI designer and a frontend developer, he has more than 8 years of experience and has worked with people from all over the world.</p>"
+        ],
+        [
+          "<p>He has skylls in: <span>Accessible and Semantic HTML, CSS, Sass, Javascript, React, Nunjucks, GSAP, Gulp, Git, Netlify Serverless, among others.</span></p>"
+        ]
+      ],
       "folk": "folk--01"
     },
     {
       "label": "portfolio",
-      "content": "There is no theory of evolution. Just a list of animals Chuck Norris allows to live There is no chin behind Chuck Norris' beard. There is only another fist.",
+      "links": [
+        ["Live Site", "#"],
+        ["Repo", "#"],
+        ["Full Features", "#"]
+      ],
+      "content": [
+        ["<p>FeedbackTo is a feedback board app</p>"],
+        [
+          "<dl><dt>Features:</dt><dd>Built using Hooks,</dd><dd>Create, read, update, and delete product feedback using serverless functions,</dd><dd>Form validations when trying to create/edit feedback with React Hook Form,</dd><dd>Sort suggestions by most/least upvotes and most/least comments,</dd><dd>Filter suggestions by category,</dd><dd>Add comments and replies to a product feedback, and</dd><dd>Upvote feedback system</dd></dl>"
+        ],
+        [
+          "<p>Stack: React, react-select, React Hook Form, CSS (Grid and Flexbox for layout) with Sass as preprocessor, Serverless functions with Airtable as DB.</p>"
+        ],
+        ["<p>* Based on Frontend Mentor guru challenge.<p>"]
+      ],
       "folk": "folk--02"
     },
     {
       "label": "freelance-works",
-      "content": "Chuck Norris won the Tour De France with two flat tires and a broken chain, Chuck Noris can touch this. Chuck Norris unlocked the Nuke killstreak. In Black ops, Chuck Norris can win a game of Connect Four in only three moves.",
+      "content": [
+        [
+          "<p>REWRITE THIS ... If you’d like to send me a message, I can be reached through various ways! If you prefer email, simply fill out the form below or send me a message directly at dev@josearellanes.me</p>"
+        ]
+      ],
       "folk": "folk--03"
     }
   ]
