@@ -1,7 +1,7 @@
 {% import "../macros/navSection.njk" as navLinks %}
 
 {% macro section(label, content, position, folk, links) %}
-	{% set isActive = 'is-active' if label === 'portfolio' %}
+	{% set isActive = 'is-active' if label === 'about' %}
 	{% set ariaHidden = 'aria-hidden=true' %}
 	{% set renderHighlight = ' highlight' if label === 'portfolio' %}
 
@@ -13,19 +13,21 @@
 	 role='tabpanel' 
 	 tabindex='-1'>
 		<div class="tabs__content tabs__content--{{ label }}">
-			<h2 class="tabs__title">{{ label }}{{ renderHighlight }}</h2>
-			<div class="tabs__text tabs__{{ label }}">
-				{% if links %}
-					<ul class="nav-section__element tabs__link">
-						{% for linkLabel, href in links %}
-							{{ navLinks.navSection(linkLabel, href) }}
-						{% endfor %}
-					</ul>
-				{% endif %}
+			<div class="tabs__content-container">
+				<h2 class="tabs__title">{{ label }}{{ renderHighlight }}</h2>
+				<div class="tabs__text tabs__{{ label }}">
+					{% if links %}
+						<ul class="nav-section__element tabs__link">
+							{% for linkLabel, href in links %}
+								{{ navLinks.navSection(linkLabel, href) }}
+							{% endfor %}
+						</ul>
+					{% endif %}
 
-				{% for element in content %}
-					{{ element | safe }}
-				{% endfor %}
+					{% for element in content %}
+						{{ element | safe }}
+					{% endfor %}
+				</div>
 			</div>
 		</div>
 		<div class="tabs__folk tabs__folk--0{{ position }}">

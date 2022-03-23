@@ -1,17 +1,31 @@
 #home__wrapper {
-  max-width: 36rem;
-  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 36rem;
+  max-height: 48rem;
+  height: 100%;
   padding: 1.5rem 2rem 0;
 
-  background-color: var(--color__bg--inner);
-  @include jm__bg-grid;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .home {
+  --header__height: 5rem;
+
+  & .header-main {
+    height: var(--header__height);
+  }
+
   &__content {
     display: grid;
+    // grid-auto-rows: 1fr;
 
-    margin-top: var(--spacer__24);
+    height: calc(100% - var(--header__height));
+    // max-height: 35rem;
+    // margin-top: var(--spacer__24);
   }
 
   & > section {
