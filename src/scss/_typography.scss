@@ -26,7 +26,7 @@ body {
   font-family: var(--font__primary);
   font-size: jm_calculate-rem(20);
   line-height: jm_calculate-lh(28, 20);
-  @include jm_text-properties;
+  @include jm__text-properties;
 }
 
 /* =====================================================================
@@ -35,15 +35,32 @@ body {
 h1,
 .h1 {
   font-family: var(--font__headings);
-  font-size: jm_calculate-rem(32);
-  line-height: jm_calculate-lh(32, 26);
+  font-size: jm_calculate-rem(34);
+  line-height: jm_calculate-lh(34, 28);
   color: var(--color__text--headings);
 }
 
 h2,
 .h2 {
   font-family: var(--font__headings);
-  font-size: jm_calculate-rem(28);
-  line-height: jm_calculate-lh(28, 28);
+  font-size: jm_calculate-rem(30);
+  line-height: jm_calculate-lh(30, 30);
   color: var(--color__text--headings);
+}
+
+h3,
+.h3 {
+  font-family: var(--font__headings);
+  font-size: jm_calculate-rem(24);
+  line-height: jm_calculate-lh(24, 24);
+  color: var(--color__comp--04);
+}
+
+/* =====================================================================
+-> PARAGRAPHS
+===================================================================== */
+.tabs__portfolio--project-title {
+  font-family: var(--font__headings);
+  font-size: jm_calculate-rem(26);
+  line-height: jm_calculate-lh(26, 26);
 }
