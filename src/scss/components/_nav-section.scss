@@ -1,0 +1,49 @@
+.nav-section {
+  &__element {
+    display: flex;
+
+    list-style: none;
+
+    & > .nav-section__item:not(:last-child) {
+      margin-right: var(--spacer__24);
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: block;
+
+    height: 28px;
+    padding: 0 20px 0;
+
+    background-image: url(../../images/bg__corner--left.svg),
+      url(../../images/bg__corner--right.svg);
+    background-position: 0 0, 100% 100%;
+    background-repeat: no-repeat;
+
+    text-decoration: none;
+    transition: all var(--duration__250) var(--easing__s);
+    transition-property: opacity color;
+
+    &:hover {
+      color: var(--color__comp--05);
+    }
+
+    &::after {
+      @include jm__pseudo-element;
+
+      opacity: 0;
+      background-image: url(../../images/bg__corner--left-hover.svg),
+        url(../../images/bg__corner--right-hover.svg);
+      background-position: 0 0, 100% 100%;
+      background-repeat: no-repeat;
+      transition: opacity var(--duration__250) var(--easing__s);
+    }
+
+    &:hover {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}

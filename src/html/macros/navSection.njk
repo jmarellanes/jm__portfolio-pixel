@@ -1,5 +1,5 @@
 {% macro navSection(label, anchor) %}
-	<li>
-		<a href="{{ anchor | safe}}">{{ label | safe }}</a>
+	<li class="nav-section__item">
+		<a href="{{ anchor | safe}}" class="nav-section__link h3">{{ label }}</a>
 	</li>
 {% endmacro %}
