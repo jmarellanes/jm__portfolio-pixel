@@ -17,7 +17,7 @@
           "<p>Hiya folks, meet my friend Jose Manuel, he’s a really cool guy and also a UI designer and a frontend developer, he has more than 8 years of experience and has worked with people from all over the world.</p>"
         ],
         [
-          "<p>He has skylls in: <span>Accessible and Semantic HTML, CSS, Sass, Javascript, React, Nunjucks, GSAP, Gulp, Git, Netlify Serverless, among others.</span></p>"
+          "<p>He has skylls in: Accessible and Semantic HTML, CSS, Sass, Javascript, React, Nunjucks, GSAP, Gulp, Git, Netlify Serverless, among others.</p>"
         ]
       ],
       "folk": "folk--01"
@@ -30,22 +30,24 @@
         ["Full Features", "#"]
       ],
       "content": [
-        ["<p>FeedbackTo is a feedback board app</p>"],
+        [
+          "<p class=\"tabs__portfolio--project-title\">FeedbackTo: Feedback board app</p>"
+        ],
         [
           "<dl><dt>Features:</dt><dd>Built using Hooks,</dd><dd>Create, read, update, and delete product feedback using serverless functions,</dd><dd>Form validations when trying to create/edit feedback with React Hook Form,</dd><dd>Sort suggestions by most/least upvotes and most/least comments,</dd><dd>Filter suggestions by category,</dd><dd>Add comments and replies to a product feedback, and</dd><dd>Upvote feedback system</dd></dl>"
         ],
         [
           "<p>Stack: React, react-select, React Hook Form, CSS (Grid and Flexbox for layout) with Sass as preprocessor, Serverless functions with Airtable as DB.</p>"
         ],
-        ["<p>* Based on Frontend Mentor guru challenge.<p>"]
+        ["<p>* Based on Frontend Mentor guru challenge.</p>"]
       ],
       "folk": "folk--02"
     },
     {
-      "label": "freelance-works",
+      "label": "contact",
       "content": [
         [
-          "<p>REWRITE THIS ... If you’d like to send me a message, I can be reached through various ways! If you prefer email, simply fill out the form below or send me a message directly at dev@josearellanes.me</p>"
+          "<p>If you have any questions or if you’d like to send me a message, please feel free to drop me a line  at dev@josearellanes.me</p>"
         ]
       ],
       "folk": "folk--03"
