@@ -71,13 +71,7 @@ button {
       &--bottom {
         &::before,
         &::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-
-          width: 3px;
-          height: 3px;
+          @include jm__pseudo-element(3px, 3px);
           background-color: var(--color__secd-shade--1);
         }
 
