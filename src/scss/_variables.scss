@@ -10,6 +10,7 @@
   --color__text--headings: var(--thm-light__primary);
   --color__text--main: var(--thm-light__primary--shade-2);
   --color__text--highligth: var(--thm-light__complementary-3);
+  --color__text--button: var(--thm__pure-white);
   --color__button--border: var(--thm-light__primary--shade-2);
 
   --color__secd: var(--thm-light__secondary);
@@ -61,4 +62,5 @@
   --duration__350: 350ms;
   --easing__xl: cubic-bezier(0.8, 0, 0.2, 1);
   --easing__s: cubic-bezier(0.5, 0.7, 0.4, 1);
+  --easing__s--01: cubic-bezier(0.5, 0.7, 0.4, 1.2);
 }
