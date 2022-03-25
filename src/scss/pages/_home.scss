@@ -21,11 +21,8 @@
 
   &__content {
     display: grid;
-    // grid-auto-rows: 1fr;
 
     height: calc(100% - var(--header__height));
-    // max-height: 35rem;
-    // margin-top: var(--spacer__24);
   }
 
   & > section {
