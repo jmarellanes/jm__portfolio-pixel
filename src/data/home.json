@@ -47,7 +47,10 @@
       "label": "contact",
       "content": [
         [
-          "<p>If you have any questions or if you’d like to send me a message, please feel free to drop me a line  at dev@josearellanes.me</p>"
+          "<p>If you have any questions or if you’d like to send me a message, please feel free to drop me a line.</p>"
+        ],
+        [
+          "<article class=\"a-link a-link__contact\"><h2 class=\"visually-hidden\">Send me an email</h2><div class=\"a-link__item\"><a href=\"mailto: dev@josearellanes.me\" class=\"a-link__link h2\"><span>Send me an email</span></a></div></article>"
         ]
       ],
       "folk": "folk--03"
