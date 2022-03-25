@@ -9,8 +9,8 @@
       "label": "about",
       "links": [
         ["Github", "https://www.github.com/jmarellanes"],
-        ["Linkedin", "https://www.linkedin.com/jmarellanes"],
-        ["Resume", "https://www.myresume.com"]
+        ["Linkedin", "https://www.linkedin.com/in/jmarellanes/"],
+        ["Resume", "#"]
       ],
       "content": [
         [
@@ -26,7 +26,7 @@
       "label": "portfolio",
       "links": [
         ["Live Site", "#"],
-        ["Repo", "#"],
+        ["Repo", "https://github.com/jmarellanes/feedback-board"],
         ["Full Features", "#"]
       ],
       "content": [
