@@ -12,7 +12,6 @@ button {
 // END RESET
 
 .nav-main {
-  margin-bottom: 3rem; // TEMP > DELETE ME
   --button-height: 80px;
   --button-height__top: 67px;
 
@@ -62,6 +61,7 @@ button {
 
     transform: translateY(4px);
     transition: all 150ms var(--easing__s--01);
+    transition-property: transform outline;
 
     // Focus State
     outline: 4px dotted transparent;
@@ -128,20 +128,10 @@ button {
       outline: 4px dotted var(--color__button--border);
       outline-offset: -25px;
 
-      // &::before,
-      // &::after {
-      //   background-color: var(--color__button--border);
-      // }
-
       .nav-main__icon {
         svg {
           transform: translateY(6px);
         }
-
-        // &::before,
-        // &::after {
-        //   background-color: var(--color__button--border);
-        // }
       }
     }
   }
