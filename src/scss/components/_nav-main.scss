@@ -1,9 +1,11 @@
 .nav-main {
-  &__element {
+  &__container {
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    width: min-content;
+    margin: 0 auto;
 
-    list-style: none;
+    & > * {
+      margin-left: -2px;
+    }
   }
 }

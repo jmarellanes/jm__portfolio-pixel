@@ -6,11 +6,11 @@
 		<nav class="header-main__nav nav-main" aria-labelledby="main-menu">
 
 			<h2 id="main-menu" hidden>Main Menu</h2>
-			<ul class="nav-main__element tabs__nav-list" role="tablist">
+			<div class="nav-main__container tabs__nav-list" role="tablist">
 				{% for button in buttons %}
 					{{ navTab.navMain(button.label, loop.index, button.icon)}}
 				{% endfor %}
-			</ul>
+			</div>
 
 		</nav>
 

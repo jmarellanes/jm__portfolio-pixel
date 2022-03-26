@@ -12,17 +12,29 @@ button {
 // END RESET
 
 .nav-main {
-  --dimentions: 72px;
-  --border-size: 2px;
-  --button-inner: 62px;
-  --button-outer: 10px;
+  margin-bottom: 3rem; // TEMP > DELETE ME
+  --button-height: 80px;
+  --button-height__top: 67px;
+
+  &__element {
+    position: relative;
+
+    &::after {
+      @include jm__pseudo-element($width: 93%, $left: 50%);
+      z-index: -1;
+      transform: translateX(-50%);
+
+      box-shadow: 0 3px 0 0 rgba(42, 13, 102, 0.8),
+        0 5px 0 0 rgba(42, 13, 102, 0.5), 0 7px 0 0 rgba(42, 13, 102, 0.3),
+        0 9px 0 0 rgba(42, 13, 102, 0.2);
+    }
+  }
 
   &__item {
-    margin-right: 3px;
-    box-shadow: -3px 0 0 0 var(--color__button--border),
-      3px 0 0 0 var(--color__button--border),
-      0 -3px 0 0 var(--color__button--border),
-      0 3px 0 0 var(--color__button--border);
+    overflow: hidden;
+    // Padding to show box-shadow applied to child element (button)
+    padding: 3px;
+    padding-top: 5px;
   }
 
   &__button {
@@ -31,98 +43,107 @@ button {
       pointer-events: none;
     }
 
+    display: flex;
+    justify-content: center;
     position: relative;
-    z-index: 1;
 
-    width: var(--dimentions);
-    height: calc(var(--button-inner) + var(--button-outer));
-    box-shadow: 0 5px 0 0 rgba(42, 13, 102, 0.6),
-      0 7px 0 0 rgba(42, 13, 102, 0.3), 0 9px 0 0 rgba(42, 13, 102, 0.2);
+    height: var(--button-height);
+    width: var(--button-height);
+    background: linear-gradient(
+      to bottom,
+      var(--color__secd) var(--button-height__top),
+      var(--color__secd-shade--1) 0%
+    );
+    // Box shadow imitating border: left, right, top and bottom
+    box-shadow: -3px 0 0 0 var(--color__button--border),
+      3px 0 0 0 var(--color__button--border),
+      0 -3px 0 0 var(--color__button--border),
+      0 3px 0 0 var(--color__button--border);
 
-    transition: all 250ms var(--easing__s);
-    transition-property: height, box-shadow;
+    transform: translateY(4px);
+    transition: all 150ms var(--easing__s--01);
 
-    &::after,
-    &::before {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      left: 0;
+    // Focus State
+    outline: 4px dotted transparent;
+    outline-offset: -20px;
 
-      width: inherit;
-    }
-
+    // Top squares for pixel art look
+    &::before,
     &::after {
-      top: 0;
-
-      height: var(--button-inner);
-      background-color: var(--color__secd);
-    }
-
-    &::before {
-      bottom: 0;
-
-      height: var(--button-outer);
+      @include jm__pseudo-element(3px, 3px);
       background-color: var(--color__secd-shade--1);
     }
 
-    &-pixel {
-      &--top,
-      &--bottom {
-        &::before,
-        &::after {
-          @include jm__pseudo-element(3px, 3px);
-          background-color: var(--color__secd-shade--1);
-        }
-
-        &::after {
-          left: calc(100% - 3px);
-        }
-      }
-
-      &--bottom {
-        &::before,
-        &::after {
-          top: calc(100% - 13px);
-
-          transition: top 150ms var(--easing__s);
-        }
-      }
+    &::after {
+      left: calc(100% - 3px);
     }
 
+    // Active State
     &[aria-selected='true'] {
-      --active-height: 56px;
-      height: calc(var(--active-height) + var(--button-outer));
-      transition: all 150ms var(--easing__s);
+      transform: translateY(12px);
+    }
+  }
 
-      .nav-main__button-pixel {
-        &--bottom {
-          &::before,
-          &::after {
-            top: calc(100% - 7px);
-          }
-        }
-      }
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: var(--button-height__top);
+
+    svg {
+      transition: transform 150ms var(--easing__s);
     }
 
-    --focus__shadow: 0 6px 0 0 var(--color__button--border),
-      0 9px 0 0 var(--color__secd);
-    // Fallback for Safari
+    // Bottom squares for pixel art look
+    &::before,
+    &::after {
+      @include jm__pseudo-element(3px, 3px, calc(100% - 16px));
+      background-color: var(--color__secd-shade--1);
+    }
+
+    &::after {
+      left: calc(100% - 3px);
+    }
+  }
+}
+
+// BUTTON STATES
+.nav-main__button {
+  // Fallback for Safari
+  &:focus {
+    outline: none;
+    outline: 4px dotted var(--color__button--border);
+    outline-offset: -25px;
+  }
+
+  // HACK to use @supports selector() with SASS
+  @supports #{'\selector(*:focus-visible)'} {
     &:focus {
       outline: none;
-      box-shadow: var(--focus__shadow);
     }
 
-    // HACK for use @supports selector() with SASS
-    @supports #{'\selector(*:focus-visible)'} {
-      &:focus {
-        outline: none;
-      }
+    &:focus-visible {
+      outline: none;
+      outline: 4px dotted var(--color__button--border);
+      outline-offset: -25px;
 
-      &:focus-visible {
-        outline: none;
-        box-shadow: var(--focus__shadow);
+      // &::before,
+      // &::after {
+      //   background-color: var(--color__button--border);
+      // }
+
+      .nav-main__icon {
+        svg {
+          transform: translateY(6px);
+        }
+
+        // &::before,
+        // &::after {
+        //   background-color: var(--color__button--border);
+        // }
       }
     }
   }
 }
+// END BUTTON STATES

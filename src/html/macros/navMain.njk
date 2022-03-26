@@ -1,21 +1,24 @@
 {% macro navMain(label, position, icon) %}
 
-	<li class="tabs__nav-item tabs__nav-item--{{ label }}  nav-main__item" role="presentation">
-		<button 
-		 id="tab-label-{{ label }}" 
-		 class="nav-main__button"
-		 role="tab"
-		 tabindex={{ "0" if position === 1 else "-1" }}
-		 aria-controls="tab-panel-{{ label }}" 
-		 aria-selected={{ "true" if position === 1 else "false" }} 
-		 aria-setsize="3" 
-		 aria-posinset={{ position }}
-		 aria-labelledby="button-label--{{ label }}">
-			<span id="button-label--{{ label }}" hidden>{{ label }}</span>
-			<svg src="{{ icon }}.svg" class="nav-menu__icon"></svg>
-			<span class="nav-main__button-pixel--top"></span>
-			<span class="nav-main__button-pixel--bottom"></span>
-		</button>
-	</li>
+	<article class="tabs__nav-item tabs__nav-item--{{ label }}  nav-main__element" role="presentation">
+		<h2 class="visually-hidden">Content of {{ label }} section</h2>
+		<div class="nav-main__item">
+			<button 
+				id="tab-label-{{ label }}" 
+				class="nav-main__button"
+				role="tab"
+				tabindex={{ "0" if position === 1 else "-1" }}
+				aria-controls="tab-panel-{{ label }}" 
+				aria-selected={{ "true" if position === 1 else "false" }} 
+				aria-setsize="3" 
+				aria-posinset={{ position }}
+				aria-labelledby="button-label--{{ label }}">
+				<span id="button-label--{{ label }}" hidden>{{ label }}</span>
+				<span class="nav-main__icon">
+					<svg src="{{ icon }}.svg" class="nav-menu__icon"></svg>
+				</span>
+			</button>
+		</div>
+	</article>
 
 {% endmacro %}
