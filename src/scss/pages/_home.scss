@@ -30,3 +30,28 @@
     grid-row: 1 / 2;
   }
 }
+
+.tabs__content {
+  --size: 12px;
+  --foreground-color: var(--color__button--border);
+  --background-color: #fff;
+
+  & ::-webkit-scrollbar {
+    width: var(--size);
+  }
+  & ::-webkit-scrollbar-thumb {
+    background-color: var(--color__button--border);
+    outline: 1px solid #fff;
+    outline-offset: -3px;
+  }
+  & ::-webkit-scrollbar-track {
+    border: 2px solid var(--color__button--border);
+  }
+
+  // Standard version (Firefox only for now)
+  scrollbar-track-color: #ddddff;
+  &-container {
+    scrollbar-color: var(--foreground-color) var(--background-color);
+    scrollbar-width: thin;
+  }
+}
