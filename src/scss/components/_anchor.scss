@@ -8,6 +8,10 @@
     width: 80%;
     margin: 0 auto;
 
+    @include respond-to('small__m') {
+      width: 100%;
+    }
+
     &::after {
       @include jm__pseudo-element($width: 98%, $left: 50%);
       z-index: -1;

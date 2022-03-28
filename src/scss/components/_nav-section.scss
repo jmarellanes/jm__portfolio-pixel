@@ -4,6 +4,12 @@
 
     list-style: none;
 
+    @include respond-to('small__s') {
+      justify-content: center;
+      row-gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
     & > .nav-section__item:not(:last-child) {
       margin-right: var(--spacer__24);
     }

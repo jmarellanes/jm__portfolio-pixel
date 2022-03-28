@@ -64,3 +64,13 @@
   --easing__s: cubic-bezier(0.5, 0.7, 0.4, 1);
   --easing__s--01: cubic-bezier(0.5, 0.7, 0.4, 1.8);
 }
+
+/* =====================================================================
+  -> RESPONSIVE BREAKPOINTS
+  ===================================================================== */
+/* prettier-ignore */
+$breakpoints: (
+  'small__y': (max-height: 47em),      // ------> 752px
+  'small__m': (max-width: 43em),       // ------> 688px
+  'small__s': ( max-width:  30em ),    // ------> 480px  
+  ) !default;

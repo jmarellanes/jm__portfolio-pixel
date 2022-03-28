@@ -38,6 +38,10 @@ h1,
   font-size: jm_calculate-rem(34);
   line-height: jm_calculate-lh(34, 28);
   color: var(--color__text--headings);
+
+  @include respond-to('small__s') {
+    font-size: jm_calculate-rem(32);
+  }
 }
 
 h2,
