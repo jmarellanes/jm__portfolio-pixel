@@ -4,19 +4,17 @@
 ///////////////////////////////////////////////////////////////////////
 //  MUNRO FAMILY
 @font-face {
-  font-family: 'munro_regular';
+  font-family: 'pixter-display__regular';
   font-display: swap;
-  src: url('../fonts/munro.woff2') format('woff2'),
-    url('../fonts/munro.woff') format('woff'),
-    url('../fonts/munro.ttf') format('truetype');
+  src: url('../fonts/pixter-display__regular.woff2') format('woff2'),
+    url('../fonts/pixter-display__regular.woff') format('woff');
 }
 
 @font-face {
-  font-family: 'munro_small';
+  font-family: 'pixter-display__bold';
   font-display: swap;
-  src: url('../fonts/munro-small.woff2') format('woff2'),
-    url('../fonts/munro-small.woff') format('woff'),
-    url('../fonts/munro-small.ttf') format('truetype');
+  src: url('../fonts/pixter-display__bold.woff2') format('woff2'),
+    url('../fonts/pixter-display__bold.woff') format('woff');
 }
 
 /* =====================================================================
@@ -25,7 +23,7 @@
 body {
   font-family: var(--font__primary);
   font-size: jm_calculate-rem(20);
-  line-height: jm_calculate-lh(28, 20);
+  line-height: jm_calculate-lh(30, 20);
   @include jm__text-properties;
 }
 
@@ -35,28 +33,27 @@ body {
 h1,
 .h1 {
   font-family: var(--font__headings);
-  font-size: jm_calculate-rem(34);
-  line-height: jm_calculate-lh(34, 28);
+  font-size: jm_calculate-rem(22);
+  line-height: jm_calculate-lh(22, 22);
+  text-transform: uppercase;
   color: var(--color__text--headings);
-
-  @include respond-to('small__s') {
-    font-size: jm_calculate-rem(32);
-  }
 }
 
 h2,
 .h2 {
   font-family: var(--font__headings);
-  font-size: jm_calculate-rem(30);
-  line-height: jm_calculate-lh(30, 30);
+  font-size: jm_calculate-rem(20);
+  line-height: jm_calculate-lh(20, 18);
+  text-transform: uppercase;
   color: var(--color__text--headings);
 }
 
 h3,
 .h3 {
   font-family: var(--font__headings);
-  font-size: jm_calculate-rem(24);
-  line-height: jm_calculate-lh(24, 24);
+  font-size: jm_calculate-rem(18);
+  line-height: jm_calculate-lh(22, 16);
+  text-transform: uppercase;
   color: var(--color__comp--04);
 }
 
@@ -65,6 +62,6 @@ h3,
 ===================================================================== */
 .tabs__portfolio--project-title {
   font-family: var(--font__headings);
-  font-size: jm_calculate-rem(26);
-  line-height: jm_calculate-lh(26, 26);
+  font-size: jm_calculate-rem(22);
+  line-height: jm_calculate-lh(26, 20);
 }
