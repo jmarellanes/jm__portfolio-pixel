@@ -12,6 +12,10 @@
 
     & > .nav-section__item:not(:last-child) {
       margin-right: var(--spacer__24);
+
+      @include respond-to('small__s') {
+        margin-right: var(--spacer__16);
+      }
     }
   }
 
