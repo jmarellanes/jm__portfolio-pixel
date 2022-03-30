@@ -51,10 +51,15 @@ h2,
 h3,
 .h3 {
   font-family: var(--font__headings);
-  font-size: jm_calculate-rem(18);
-  line-height: jm_calculate-lh(22, 16);
+  font-size: jm_calculate-rem(19.2);
+  line-height: jm_calculate-lh(22, 19);
   text-transform: uppercase;
   color: var(--color__comp--04);
+
+  @include respond-to('small__s') {
+    font-size: jm_calculate-rem(17);
+    line-height: jm_calculate-lh(24, 17);
+  }
 }
 
 /* =====================================================================

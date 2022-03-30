@@ -61,7 +61,7 @@ button {
 
     transform: translateY(4px);
     transition: all 150ms var(--easing__s--01);
-    transition-property: transform outline;
+    transition-property: transform, outline;
 
     // Focus State
     outline: 4px dotted transparent;

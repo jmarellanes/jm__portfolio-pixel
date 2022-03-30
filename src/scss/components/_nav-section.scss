@@ -33,7 +33,7 @@
 
     text-decoration: none;
     transition: all var(--duration__250) var(--easing__s);
-    transition-property: opacity color;
+    transition-property: opacity, color;
 
     &:hover {
       color: var(--color__comp--05);

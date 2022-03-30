@@ -20,6 +20,8 @@
   &__panel {
     visibility: hidden;
     opacity: 0;
+    // Fix Blurry text in Chrome
+    transform: translate3d(0, 0, 0);
 
     &.is-active {
       visibility: visible;
@@ -59,6 +61,7 @@
     );
 
     &::after {
+      // Dialog thingy
       content: '';
       position: absolute;
       top: calc(100% - var(--border-square-size));
@@ -75,6 +78,7 @@
     }
 
     &::before {
+      // Pixelated border
       @include jm__pseudo-element;
       z-index: -1;
 
@@ -97,9 +101,23 @@
 
     &-container {
       height: 100%;
-      margin: 2.5rem 16px 2.3rem 2.5rem;
+      margin: 2.5rem 14px 2.3rem 2.5rem;
       padding-right: 1.2rem;
       overflow: auto;
+
+      // This rule is only to fix a bug in Chrome
+      &::after {
+        @include jm__pseudo-element(
+          $width: calc(100% - 24px),
+          $height: calc(100% - 70px),
+          $top: 50%,
+          $left: 50%
+        );
+        z-index: -1;
+        transform: translate(-50%, -50%);
+
+        background-color: var(--color__comp--02);
+      }
     }
   }
 
