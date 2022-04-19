@@ -79,7 +79,7 @@ button {
     }
 
     // Active State
-    &[aria-selected='true'] {
+    &.is-active {
       transform: translateY(12px);
     }
   }
@@ -110,6 +110,11 @@ button {
 
 // BUTTON STATES
 .nav-main__button {
+  &.is-active {
+    &:focus-visible {
+      transform: translateY(12px);
+    }
+  }
   // Fallback for Safari
   &:focus {
     outline: none;

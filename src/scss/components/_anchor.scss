@@ -4,6 +4,7 @@
 
   &__contact {
     position: relative;
+    z-index: 1;
 
     width: 80%;
     margin: 0 auto;
@@ -49,9 +50,13 @@
       3px 0 0 0 var(--color__button--border),
       0 -3px 0 0 var(--color__button--border),
       0 3px 0 0 var(--color__button--border);
+
+    outline: 1px dotted transparent;
+    outline-offset: -8px;
     transform: translateY(4px);
 
-    transition: transform 150ms var(--easing__s--01);
+    transition: all 150ms var(--easing__s--01);
+    transition-property: outline, transform;
 
     &::before,
     &::after {
@@ -78,6 +83,26 @@
 
       &::after {
         left: calc(100% - 3px);
+      }
+    }
+
+    // Fallback for Safari
+    &:focus {
+      outline: none;
+      outline: 4px dotted var(--color__button--border);
+      outline-offset: -8px;
+    }
+
+    // HACK to use @supports selector() with SASS
+    @supports #{'\selector(*:focus-visible)'} {
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        outline: none;
+        outline: 4px dotted var(--color__button--border);
+        outline-offset: -8px;
       }
     }
 

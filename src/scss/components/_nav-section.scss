@@ -20,15 +20,17 @@
   }
 
   &__link {
+    --bg-position: 0 0, 99% 99%; // 0 0, 100% 100%; causes a bug on Chrome
+
     position: relative;
     display: block;
 
     height: 28px;
-    padding: 0 20px 0;
+    padding: 1px 20px;
 
     background-image: url(../../images/bg__corner--left.svg),
       url(../../images/bg__corner--right.svg);
-    background-position: 0 0, 100% 100%;
+    background-position: var(--bg-position);
     background-repeat: no-repeat;
 
     text-decoration: none;
@@ -45,7 +47,7 @@
       opacity: 0;
       background-image: url(../../images/bg__corner--left-hover.svg),
         url(../../images/bg__corner--right-hover.svg);
-      background-position: 0 0, 100% 100%;
+      background-position: var(--bg-position);
       background-repeat: no-repeat;
       transition: opacity var(--duration__250) var(--easing__s);
     }
@@ -53,6 +55,36 @@
     &:hover {
       &::after {
         opacity: 1;
+      }
+    }
+
+    &::before {
+      @include jm__pseudo-element($top: initial);
+      bottom: -8px;
+
+      border-bottom: 2px dotted transparent;
+      transition: border-bottom 150ms var(--easing__s);
+    }
+
+    // Fallback for Safari
+    &:focus {
+      outline: none;
+
+      &::before {
+        border-bottom: 2px dotted var(--color__comp--05);
+      }
+    }
+
+    // HACK to use @supports selector() with SASS
+    @supports #{'\selector(*:focus-visible)'} {
+      &:focus {
+        outline: none;
+      }
+
+      &:focus-visible {
+        &::before {
+          border-bottom: 2px dotted var(--color__comp--05);
+        }
       }
     }
   }

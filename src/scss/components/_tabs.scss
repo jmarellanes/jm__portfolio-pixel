@@ -21,44 +21,32 @@
     visibility: hidden;
     opacity: 0;
     // Fix Blurry text in Chrome
-    transform: translate3d(0, 0, 0);
+    // transform: translate3d(0, 0, 0);
 
     &.is-active {
       visibility: visible;
       opacity: 1;
 
-      animation: showSection var(--duration__250) var(--easing__s) forwards;
+      animation: showSection var(--duration__250) var(--easing__s);
     }
 
     &.is-fading {
       visibility: hidden;
       opacity: 0;
 
-      animation: hideSection 250ms var(--easing__s) forwards;
+      animation: hideSection 250ms var(--easing__s);
     }
   }
 
   &__content {
-    --dialog-shape-height: 72px;
-    --border-square-size: 12px;
+    --dialog-shape-height: 80px;
+    --border-square-size: 20px; // 12px border size + 8px white color excedent to fix bug in chrome
 
     position: relative;
     z-index: 1;
 
     min-height: 16rem;
     max-height: 25rem;
-
-    --leftSize: 34px;
-    --rightSize: calc(100% - var(--leftSize));
-    background: linear-gradient(
-      to right,
-      transparent 0,
-      transparent var(--leftSize),
-      var(--color__comp--02) var(--leftSize),
-      var(--color__comp--02) var(--rightSize),
-      transparent var(--rightSize),
-      transparent 100%
-    );
 
     &::after {
       // Dialog thingy
