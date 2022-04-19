@@ -10,6 +10,9 @@ function tabs() {
     function updateAttributes(element, isSelected, value) {
       element.setAttribute('aria-selected', isSelected);
       element.setAttribute('tabindex', value);
+      isSelected === true
+        ? element.classList.add('is-active')
+        : element.classList.remove('is-active');
     }
 
     array.forEach((element, index) => {
