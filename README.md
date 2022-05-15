@@ -16,7 +16,7 @@ This is the code for my personal portfolio.
 ### Features
 
 - Accessible menu tab navigation,
-- About section with links to my Github, linkedin and resume,
+- About section with links to my Github, Linkedin and resume,
 - Portfolio highlight section with my best React project and two of my most recents freelance professional works, and
 - Contact section with button to send me a email and a link to my twitter account.
 
