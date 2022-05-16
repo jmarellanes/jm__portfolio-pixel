@@ -5,6 +5,7 @@
 	{% set ariaHidden = 'aria-hidden=true' %}
 	{% set renderHighlight = ' highlight' if label === 'portfolio' %}
 	{% set tabIndex = 'tabindex=-1'%}
+	{% set titlePortfolio = '<p class=\"tabs__portfolio--project-title\">FeedbackTo: Feedback board app</p>' if label === 'portfolio' %}
 
 	<section 
 	 id='tab-panel-{{ label }}' 
@@ -17,6 +18,8 @@
 			<div class="tabs__content-container" {{ tabIndex if label === 'portfolio'}}	>
 				<h1 class="tabs__title">{{ label }}{{ renderHighlight }}</h1>
 				<div class="tabs__text tabs__{{ label }}">
+					{{ titlePortfolio | safe }}
+
 					{% if links %}
 						<ul class="nav-section__element tabs__link">
 							{% for linkLabel, href in links %}
