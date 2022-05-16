@@ -126,14 +126,14 @@ export const scripts = () => {
 };
 
 export const watchFiles = () => {
-  watch('src/html/**/*', series(html, reload));
+  watch(['src/html/**/*', 'src/data/**/*'], series(html, reload));
   watch('src/scss/**/*.scss', series(styles));
   watch('src/images/**/*.+(jpg|jpeg|png|svg|gif|webp)', series(images, reload));
   watch(
     [
       'src/**/*',
-      '!src/{html,images,js,scss}',
-      '!src/{html,images,js,scss}/**/*',
+      '!src/{html,images,js,scss,data}',
+      '!src/{html,images,js,scss,data}/**/*',
     ],
     series(copy, reload)
   );
