@@ -17,7 +17,7 @@
           "<p>Hiya folks, meet my friend Jose Manuel, he’s a really cool guy and also a UI designer and a frontend developer, he has more than 8 years of experience and has worked with people from all over the world.</p>"
         ],
         [
-          "<p>He has skylls in: Accessible and Semantic HTML, CSS, Sass, Javascript, React, Nunjucks, GSAP, Gulp, Git, Netlify Serverless, among others.</p>"
+          "<p>He has skylls in: Semantic HTML, Accessible code, CSS, Sass, Javascript, React, Nunjucks, GSAP, Gulp, Git, Serverless architecture, among others.</p>"
         ]
       ],
       "folk": "folk--01"
@@ -25,21 +25,37 @@
     {
       "label": "portfolio",
       "links": [
-        ["Live Site", "#"],
+        ["Live Site", "https://feedbackto.josearellanes.me/"],
         ["Repo", "https://github.com/jmarellanes/feedback-board"],
         ["Full Features", "#"]
       ],
       "content": [
         [
-          "<p class=\"tabs__portfolio--project-title\">FeedbackTo: Feedback board app</p>"
-        ],
-        [
-          "<dl><dt>Features:</dt><dd>Built using Hooks,</dd><dd>Create, read, update, and delete product feedback using serverless functions,</dd><dd>Form validations when trying to create/edit feedback with React Hook Form,</dd><dd>Sort suggestions by most/least upvotes and most/least comments,</dd><dd>Filter suggestions by category,</dd><dd>Add comments and replies to a product feedback, and</dd><dd>Upvote feedback system</dd></dl>"
+          "<dl><dt>Features:</dt><dd>Built using Hooks,</dd><dd>Dark mode,</dd><dd>Modal using React Portals,</dd><dd>Create, read, update, and delete product feedback using serverless functions,</dd><dd>Form validations when trying to create/edit feedback with React Hook Form,</dd><dd>Sort suggestions by most/least upvotes and most/least comments,</dd><dd>Filter suggestions by category,</dd><dd>Add comments and replies to a product feedback, and</dd><dd>Upvote feedback system</dd></dl>"
         ],
         [
           "<p>Stack: React, react-select, React Hook Form, CSS (Grid and Flexbox for layout) with Sass as preprocessor, Serverless functions with Airtable as DB.</p>"
         ],
-        ["<p>* Based on Frontend Mentor guru challenge.</p>"]
+        ["<p>* Based on Frontend Mentor guru challenge.</p>"],
+        [
+          "<p class=\"tabs__portfolio--project-title\">Here are a couple of his latest freelance works</p>"
+        ],
+        [
+          "<a href=\"http://preventanothercorona.org\" class=\"nav-section__link h3\">Prevent Another Corona</a>"
+        ],
+        ["<p>Job: UI design and child theme development for Home page</p>"],
+        [
+          "<p>Stack: HTML, CSS with BEM methodology and Sass as preprocessor, Vanilla JavaScript, GSAP and Barba.js for animations, WordPress with ACF for backend.</p>"
+        ],
+        [
+          "<a href=\"http://freedomonlineservices.com\" class=\"nav-section__link h3\">Freedom Online Services</a>"
+        ],
+        [
+          "<p>Job: UI design and child theme development for Home and Inner page</p>"
+        ],
+        [
+          "<p>Stack: HTML, CSS with BEM methodology and Sass as preprocessor, Vanilla JavaScript, GSAP and Barba.js for animations, WordPress with ACF for backend.</p>"
+        ]
       ],
       "folk": "folk--02"
     },
@@ -47,10 +63,13 @@
       "label": "contact",
       "content": [
         [
-          "<p>If you have any questions or if you’d like to send me a message, please feel free to drop me a line.</p>"
+          "<p>Find him on Twitter at&nbsp;<a href=\"https://twitter.com/jmarellanes\" class=\"nav-section__link h3\" style=\"display: inline-block; margin-left: .5rem;\"> @jmarellanes</a></p>"
         ],
         [
-          "<article class=\"a-link a-link__contact\"><h2 class=\"visually-hidden\">Send me an email</h2><div class=\"a-link__item\"><a href=\"mailto:dev@josearellanes.me\" class=\"a-link__link h2\"><span>Send me an email</span></a></div></article>"
+          "<p>Or if you’d like to send José a email, please feel free to drop him a line.</p>"
+        ],
+        [
+          "<article class=\"a-link a-link__contact\"><h2 class=\"visually-hidden\">Send email</h2><div class=\"a-link__item\"><a href=\"mailto:dev@josearellanes.me\" class=\"a-link__link h2\"><span>Send email</span></a></div></article>"
         ]
       ],
       "folk": "folk--03"
