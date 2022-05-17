@@ -1,11 +1,13 @@
 {% import "../macros/navMain.njk" as navTab %}
 
 <header class="header-main">
+	<h1 class="visually-hidden">Portfolio of Jose Manuel Arellanes</h1>
+
 	<div class="header-main__container">
 
 		<nav class="header-main__nav nav-main" aria-labelledby="main-menu">
 
-			<h2 id="main-menu" hidden>Main Menu</h2>
+			<h2 id="main-menu" class="visually-hidden">Main Menu</h2>
 			<div class="nav-main__container tabs__nav-list" role="tablist">
 				{% for button in buttons %}
 					{{ navTab.navMain(button.label, loop.index, button.icon)}}

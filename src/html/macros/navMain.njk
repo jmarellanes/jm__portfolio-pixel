@@ -1,10 +1,11 @@
 {% macro navMain(label, position, icon) %}
 
 	<article class="tabs__nav-item tabs__nav-item--{{ label }}  nav-main__element" role="presentation">
-		<h2 class="visually-hidden">Content of {{ label }} section</h2>
+		<h3 class="visually-hidden">{{ label }} section</h3>
 		<div class="nav-main__item">
 			<button 
 				id="tab-label-{{ label }}" 
+				type="button"
 				class="nav-main__button {{ 'is-active' if label === 'about'}}"
 				role="tab"
 				tabindex={{ "0" if position === 1 else "-1" }}
