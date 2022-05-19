@@ -2,7 +2,7 @@
   "buttons": [
     { "label": "about", "icon": "icon__dinogrr" },
     { "label": "portfolio", "icon": "icon__code" },
-    { "label": "contact", "icon": "icon__portfolio" }
+    { "label": "contact", "icon": "icon__contact" }
   ],
   "sections": [
     {
